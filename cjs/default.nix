@@ -13,4 +13,6 @@ stdenv.mkDerivation rec {
 
   buildInputs = [ autoconf-archive dbus_glib gobjectIntrospection pkgconfig spidermonkey_52 ];
   nativeBuildInputs = [ autoreconfHook ];
+
+  enableParallelBuilding = true;
 }

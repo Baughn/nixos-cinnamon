@@ -16,6 +16,8 @@ stdenv.mkDerivation rec {
   buildInputs = [ autoconf-archive cinnamon-desktop colord gtk3 glib gsettings_desktop_schemas intltool lcms2 libcanberra libcanberra_gtk3 libgnomekbd libnotify libxklavier makeWrapper pkgconfig pulseaudio systemd upower ];
   nativeBuildInputs = [ autoreconfHook ];
 
+  enableParallelBuilding = true;
+
   postFixup  = ''
     for f in "$out/libexec/"*; do
       wrapProgram "$f" --prefix XDG_DATA_DIRS : "$GSETTINGS_SCHEMAS_PATH"

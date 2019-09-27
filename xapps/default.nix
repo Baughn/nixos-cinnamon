@@ -16,9 +16,11 @@ stdenv.mkDerivation rec {
   buildInputs = [ glib gobjectIntrospection gtk3 libgnomekbd libxklavier pkgconfig python3Packages.pygobject3 vala ];
   nativeBuildInputs = [ meson ninja python3 ];
 
-   mesonFlags = [
+  enableParallelBuilding = true;
+
+  mesonFlags = [
     "-Dpy-overrides-dir=${placeholder "out"}/${python3.sitePackages}/gi/overrides"
-   ];
+  ];
 
   postPatch = ''
     chmod +x schemas/meson_install_schemas.py # patchShebangs requires executable file

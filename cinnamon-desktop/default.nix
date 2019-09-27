@@ -14,6 +14,8 @@ stdenv.mkDerivation rec {
   buildInputs = [ gdk_pixbuf gobjectIntrospection gtk3 intltool pkgconfig pulseaudio xkeyboard_config xorg.libxkbfile ];
   nativeBuildInputs = [ meson ninja python3 ];
 
+  enableParallelBuilding = true;
+
   postPatch = ''
     chmod +x install-scripts/meson_install_schemas.py # patchShebangs requires executable file
     patchShebangs install-scripts/meson_install_schemas.py

@@ -17,6 +17,8 @@ stdenv.mkDerivation rec {
   NIX_CFLAGS_COMPILE = "-I${glib.dev}/include/gio-unix-2.0";
   configureFlags = "--enable-systemd";
 
+  enableParallelBuilding = true;
+
   postPatch = ''
     chmod +x data/meson_install_schemas.py # patchShebangs requires executable file
     patchShebangs data/meson_install_schemas.py

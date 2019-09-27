@@ -16,6 +16,8 @@ stdenv.mkDerivation rec {
   buildInputs = [ glib gobjectIntrospection pkgconfig ];
   nativeBuildInputs = [ meson ninja ];
 
+  enableParallelBuilding = true;
+
   postPatch = ''
   '';
 }

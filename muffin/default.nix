@@ -15,4 +15,6 @@ stdenv.mkDerivation rec {
 
   buildInputs = [ cinnamon-desktop glib gobjectIntrospection gtk3 gnome3.zenity gnome-doc-utils intltool json-glib libinput libstartup_notification libxkbcommon libXtst pkgconfig udev xorg.xkeyboardconfig xorg.libxkbfile ];
   nativeBuildInputs = [ autoreconfHook ];
+
+  enableParallelBuilding = true;
 }
