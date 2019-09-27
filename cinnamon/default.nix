@@ -11,7 +11,10 @@ stdenv.mkDerivation rec {
     sha256 = "1lhqvj2jy4zq3kpv4m8nvxj6w5h61i3gb934fdi04scqwwyxsny7";
   };
 
-  patches = [ ./disable-docs.patch ];
+  patches = [
+    ./disable-docs.patch 
+    ./install-files-to-out.patch
+  ];
 
   buildInputs = [ atk cacert cinnamon-desktop cinnamon-menus cjs dbus_glib gdk_pixbuf glib gobjectIntrospection gtk3 intltool json-glib libcroco libsoup libstartup_notification libXtst muffin networkmanager pkgconfig polkit ];
   nativeBuildInputs = [ autoreconfHook ];
